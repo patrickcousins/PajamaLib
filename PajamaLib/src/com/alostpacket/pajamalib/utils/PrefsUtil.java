@@ -77,6 +77,14 @@ public class PrefsUtil
 		editor.commit();
 	}
 	
+	public static void putFloat(String name, float value, Context c)
+	{
+		SharedPreferences sharedPrefs = getPrefs ( c ); 
+		Editor editor = sharedPrefs.edit ();
+		editor.putFloat(name, value );
+		editor.commit();
+	}
+	
 	
 	/////////////gets
 	
@@ -103,6 +111,12 @@ public class PrefsUtil
 	{
 		SharedPreferences sharedPrefs = getPrefs ( c ); 
 		return sharedPrefs.getLong ( name, defaultValue );
+	}
+	
+	public static float getFloat(String name,  float defaultValue, Context c)
+	{
+		SharedPreferences sharedPrefs = getPrefs ( c ); 
+		return sharedPrefs.getFloat ( name, defaultValue );
 	}
 
 }
